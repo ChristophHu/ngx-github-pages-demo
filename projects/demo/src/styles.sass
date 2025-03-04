@@ -1,3 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss"
+@use "tailwindcss"
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *))
+@custom-variant red (&:where([data-theme=red], [data-theme=red] *))
