@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 type Theme = 'light' | 'dark'
 
@@ -14,17 +14,20 @@ type Theme = 'light' | 'dark'
 })
 export class DarkModeToggleComponent implements OnInit {
   theme: Theme = 'light'
+  body: any
 
   constructor() {
-    document.body.classList.contains('dark') ? this.theme = 'dark' : this.theme = 'light'
+    this.body = document.body
+    this.theme = this.body.dataset['theme'] || localStorage['theme'] || 'light'    
   }
 
   ngOnInit(): void {
+
   }
 
   toggleTheme() {
     this.theme == 'dark' ? this.theme = 'light' : this.theme = 'dark'
-    const body = document.body
+
     switch (true) {
       case this.theme == 'dark':
         localStorage['theme'] = "dark"
@@ -33,6 +36,6 @@ export class DarkModeToggleComponent implements OnInit {
         localStorage['theme'] = "light"
         break
     }
-    body.dataset['theme'] = localStorage['theme']
+    this.body.dataset['theme'] = localStorage['theme']
   }
 }
