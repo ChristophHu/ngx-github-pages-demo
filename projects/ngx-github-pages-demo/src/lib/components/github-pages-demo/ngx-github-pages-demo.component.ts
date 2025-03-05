@@ -6,11 +6,13 @@ import { GithubService } from '../../services/github.service'
 import { IconsComponent } from '../icons/icons.component'
 import { NGX_GITHUB_OPTIONS_TOKEN } from '../../token/ngx-github-options-token'
 import { IGithubOptions } from '../../models/github-options'
+import { DarkModeToggleComponent } from '../dark-mode-toggle/dark-mode-toggle.component'
 
 @Component({
   selector: 'ngx-github-pages-demo',
   imports: [
     CommonModule,
+    DarkModeToggleComponent,
     IconsComponent,
     // OverviewComponent,
     RouterLink,
@@ -30,6 +32,8 @@ export class NgxGithubPagesDemoComponent {
   show_settings: boolean = false
   name: string = ''
   version: string = ''
+
+  body: any
   
   constructor(private githubService: GithubService, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
     this.repos$ = this.githubService.repos$
@@ -38,6 +42,8 @@ export class NgxGithubPagesDemoComponent {
 
     this.name = this.githubService.getThisRepo()
     this.version = this.githubService.getVersion()
+
+    this.body = document.body
   }
 
   toggleSettings() {
@@ -45,5 +51,7 @@ export class NgxGithubPagesDemoComponent {
   }
   toggleTheme() {
     this.toggleSettings()
+    
+    this.body.dataset['theme'] = this.body.dataset['theme'] === 'dark' ? 'dark' : 'dark'
   }
 }
