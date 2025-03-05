@@ -1,16 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
-@use "tailwindcss"
+@import "tailwindcss"
 
 // @custom-variant dark (&:where(.dark, .dark *))
 // @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *))
 
-:host
+:root, body[data-theme='light']
+    --primary       : rgb(240, 240, 240)
+    --secondary     : rgb(225, 225, 225)
+    --tertiary      : rgb(252, 252, 252)
+    --accent        : rgb(37, 99, 235)
+    --borderline    : rgb(210, 210, 210)
+    --light         : rgb(240, 240, 240)
+    --lighter       : rgb(220, 220, 220)
+    --dark          : rgb(41, 41, 43)
+    --darker        : rgb(21, 21, 23)
+    --placeholder   : rgb(174, 174, 174)
+    --disabled      : rgb(174, 174, 174)
+    --static-gray   : rgb(141, 141, 141)
+    --label         : rgb(96, 96, 96)
+    --input         : rgb(240, 240, 240)
+    --icon          : rgb(141, 141, 141)
+    --test          : rgb(250, 141, 141)
+
+body[data-theme='dark']
     --primary       : rgb(13, 17, 22)
     --secondary     : rgb(32, 41, 48)
     --tertiary      : rgb(32, 32, 32)
     --accent        : rgb(37, 99, 235)
-    --accent-lighter : rgb(58, 115, 238)
+    --accent-lighter: rgb(58, 115, 238)
     --accent-darker : rgb(35, 60, 116)
     --borderline    : rgb(58, 65, 72)
     --darker        : rgb(240, 240, 240)
@@ -25,57 +43,7 @@
     --icon          : rgb(141, 141, 141)
     --test          : rgb(140, 250, 141)
 
-body[data-theme='light']
-    --primary       : rgb(240, 240, 240)
-    --secondary     : rgb(225, 225, 225)
-    --tertiary      : rgb(252, 252, 252)
-    --accent        : rgb(37, 99, 235)
-    --accent-lighter : rgb(58, 115, 238)
-    --borderline    : rgb(210, 210, 210)
-    --light         : rgb(240, 240, 240)
-    --lighter       : rgb(220, 220, 220)
-    --dark          : rgb(41, 41, 43)
-    --darker        : rgb(21, 21, 23)
-    --placeholder   : rgb(174, 174, 174)
-    --disabled      : rgb(174, 174, 174)
-    --static-gray   : rgb(141, 141, 141)
-    --label         : rgb(96, 96, 96)
-    --input         : rgb(240, 240, 240)
-    --icon          : rgb(141, 141, 141)
-    --test          : rgb(250, 141, 141)
 
-// body[data-theme='dark']
-    // .dark
-    //     --primary       : rgb(13, 17, 22)
-    //     --secondary     : rgb(32, 41, 48)
-    //     --tertiary      : rgb(32, 32, 32)
-    //     --accent        : rgb(37, 99, 235)
-    //     --accent-lighter : rgb(58, 115, 238)
-    //     --accent-darker : rgb(35, 60, 116)
-
-    // // border
-    // --borderline    : rgb(58, 65, 72)
-
-    // // text
-    // --darker        : rgb(240, 240, 240)
-    // --dark          : rgb(200, 200, 200)
-    // --lighter       : rgb(21, 21, 23)
-    // --light         : rgb(41, 41, 43)
-    // --placeholder   : rgb(141, 141, 141)
-    // --disabled      : rgb(141, 141, 141)
-    // --static-gray   : rgb(141, 141, 141)
-
-    // // input
-    // --label         : rgb(140, 140, 140)
-    // --input         : rgb(40, 40, 40)
-    // --icon          : rgb(141, 141, 141)
-
-    // // test
-    // --test          : rgb(140, 250, 141)
-
-// body
-//     background: var(--light)
-//     color: var(--input)
 
 // :root
 //     // backgrounds
@@ -130,7 +98,7 @@ body[data-theme='light']
 //     --input         : rgb(40, 40, 40)
 //     --icon          : rgb(141, 141, 141)
 
-@theme
+@theme inline 
     --color-primary         : var(--primary)
     --color-secondary       : var(--secondary)
     --color-tertiary        : var(--tertiary)
