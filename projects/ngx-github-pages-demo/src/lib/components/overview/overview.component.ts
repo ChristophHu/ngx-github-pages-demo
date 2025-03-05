@@ -1,21 +1,27 @@
 import { NgIf, NgTemplateOutlet } from '@angular/common';
-import { Component, inject, Input, Signal, TemplateRef } from '@angular/core';
-import { ROUTER_OUTLET_DATA } from '@angular/router';
+import { AfterViewInit, Component, Inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { NGX_GITHUB_OPTIONS_TOKEN } from '../../token/ngx-github-options-token';
+import { IGithubOptions } from '../../models/github-options';
 
 @Component({
   selector: 'overview',
-  imports: [
-    NgIf,
-    NgTemplateOutlet
-  ],
+  imports: [],
   templateUrl: './overview.component.html',
-  styleUrl: './overview.component.sass'
+  styleUrl: './overview.component.sass',
+  exportAs: 'overview'
 })
-export class OverviewComponent {
-  // @Input() template!: TemplateRef<any>
-  data = inject(ROUTER_OUTLET_DATA) as Signal<TemplateRef<any>>
-  
-  constructor() {
-    
+export class OverviewComponent implements AfterViewInit {
+  @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef
+  optionss: IGithubOptions
+
+  constructor(@Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
+    this.optionss = options
   }
+
+  ngAfterViewInit(): void {
+    this.container.clear()
+    this.container.createComponent(this.optionss.template!)
+  }
+
+
 }

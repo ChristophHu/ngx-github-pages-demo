@@ -6,7 +6,6 @@ import { GithubService } from '../../services/github.service'
 import { IconsComponent } from '../icons/icons.component'
 import { NGX_GITHUB_OPTIONS_TOKEN } from '../../token/ngx-github-options-token'
 import { IGithubOptions } from '../../models/github-options'
-import { OverviewComponent } from '../overview/overview.component'
 
 @Component({
   selector: 'ngx-github-pages-demo',
