@@ -1,8 +1,14 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
+import { provideGithubPagesDemo } from '../../../ngx-github-pages-demo/src/public-api';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideHttpClient(),
+    provideGithubPagesDemo({ user: 'christophhu', name: 'repository_name', version: '0.0.1' }),
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes)
+  ]
 };

@@ -27,6 +27,7 @@ export class NgxGithubPagesDemoComponent {
   version: string = '0.0.1'
   
   constructor(private githubService: GithubService, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
+    console.log('options', options)
     this.repos$ = this.githubService.repos$
     this.this_repo$ = this.githubService.this_repo$
     this.user$ = this.githubService.user$
