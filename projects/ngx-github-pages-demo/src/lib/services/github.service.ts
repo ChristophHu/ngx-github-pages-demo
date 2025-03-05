@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, of, take } from 'rxjs';
-import packageJson from '../../../package.json';
-import { NGX_GITHUB_OPTIONS_TOKEN } from '../token/ngx-github-options-token';
-import { IGithubOptions } from '../models/github-options';
+import { HttpClient } from '@angular/common/http'
+import { Inject, Injectable } from '@angular/core'
+import { BehaviorSubject, map, Observable, of, take } from 'rxjs'
+import { NGX_GITHUB_OPTIONS_TOKEN } from '../token/ngx-github-options-token'
+import { IGithubOptions } from '../models/github-options'
 
 interface DataState {
   data      : any
@@ -15,10 +14,9 @@ interface DataState {
 })
 export class GithubService {
   apiURL = 'https://api.github.com'
-  username: string = 'christophhu'
 
-  this_repo: string = packageJson.name
-  version: string = packageJson.version
+  repository: string = ''
+  version: string = ''
 
   TOKEN = 'github_pat_...'
   TOKEN_ORG = 'github_pat_...'
@@ -28,8 +26,8 @@ export class GithubService {
   private readonly _repos = new BehaviorSubject<DataState>(this.initialState)
   repos$: Observable<any> = this._repos.asObservable()
 
-  private readonly _this_repo = new BehaviorSubject<DataState>(this.initialState)
-  this_repo$: Observable<any> = this._this_repo.asObservable()
+  private readonly _repo = new BehaviorSubject<DataState>(this.initialState)
+  repo$: Observable<any> = this._repo.asObservable()
 
   private readonly _user = new BehaviorSubject<DataState>(this.initialState)
   user$: Observable<any> = this._user.asObservable()
@@ -48,22 +46,25 @@ export class GithubService {
   }
 
   constructor(private http: HttpClient, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
-    this.getRepos(this.username).pipe(
-      take(1),
-      // tap(data => console.log('repos', JSON.parse(JSON.stringify(data)))),
-      map((data: any) => { this._repos.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
-    ).subscribe()
-    this.getRepo(this.username, this.this_repo)
+    console.log('GithubService', options)
+    this.getRepos(options.username)
       .pipe(
         take(1),
-        map((data: any) => { this._this_repo.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
+        map((data: any) => { this._repos.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
+      ).subscribe()
+    this.getRepo(options.username, options.repository)
+      .pipe(
+        take(1),
+        map((data: any) => { this._repo.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
       )
       .subscribe()
-    this.getSingleUser(this.username).pipe(
-      take(1),
-      // tap(data => console.log('user', JSON.parse(JSON.stringify(data)))),
-      map((data: any) => { this._user.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
-    ).subscribe()
+    this.getSingleUser(options.username)
+      .pipe(
+        take(1),
+        map((data: any) => { this._user.next({ data, timestamp: new Date(), loaded: true }); return of(data) })
+      ).subscribe()
+    this.repository = options.repository
+    this.version = options.version
   }
 
   getSingleUser(username: string) {
@@ -77,45 +78,9 @@ export class GithubService {
   }
 
   getThisRepo(): string {
-    return this.this_repo
+    return this.repository
   }
   getVersion(): string {
     return this.version
   }
-
-  // getEvents(username: string) {
-  //   return this.http.get(`${this.apiURL}/users/${username}/events`, this.header).pipe(take(1))
-  // }
-  // getRecentUpdates(top: number) {
-  //   this.events$
-  //   .pipe(take(1))
-  //   .subscribe(data => {
-  //     let repos: any[] = []
-  //     console.log('event data', data)
-  //     if (data) {
-  //       data.forEach((repo: any) => {
-  //         if (repo.type == 'PushEvent') repos.push(repo.repo.name)
-  //       })
-  //     }
-  //     Array.from(new Set(repos)).slice(0, top).forEach(repo => {
-  //       this.getRepo(repo).pipe(take(1)).subscribe({
-  //         next: data => {
-  //           console.log('repo', data)
-  //         },
-  //         error: error => {
-  //           this.getRepo(repo, this.header_org).pipe(take(1)).subscribe({
-  //             next: data => {
-  //               console.log('repo', data)
-  //             },
-  //             error: error => {
-  //               console.error('error', error)
-  //             }
-  //           })
-  //         }
-  //       })
-  //     })
-  //     console.log('repos', Array.from(new Set(repos)).slice(0, top))
-  //     this.topEvents$ = of(Array.from(new Set(repos)).slice(0, top))
-  //   })
-  // }
 }

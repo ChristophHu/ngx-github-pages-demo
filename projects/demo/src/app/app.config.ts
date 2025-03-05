@@ -7,7 +7,7 @@ import { provideHttpClient } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
-    provideGithubPagesDemo({ user: 'christophhu', name: 'repository_name', version: '0.0.1' }),
+    provideGithubPagesDemo({ username: 'christophhu', repository: 'ngx-github-pages-demo', version: '0.0.2' }),
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes)
   ]

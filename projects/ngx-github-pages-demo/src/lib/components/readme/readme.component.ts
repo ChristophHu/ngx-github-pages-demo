@@ -1,8 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MarkdownComponent } from 'ngx-markdown';
-import { GithubService } from '../../core/services/github.service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-readme',
@@ -16,12 +16,12 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ReadmeComponent {
   repos$: Observable<any>
-  this_repo$: Observable<any>
+  repo$: Observable<any>
   user$: Observable<any>
 
-  constructor(private githubService: GithubService) {
+  constructor(@Inject(GithubService) private githubService: GithubService) {
       this.repos$ = this.githubService.repos$
-      this.this_repo$ = this.githubService.this_repo$
+      this.repo$ = this.githubService.repo$
       this.user$ = this.githubService.user$
     }
 }

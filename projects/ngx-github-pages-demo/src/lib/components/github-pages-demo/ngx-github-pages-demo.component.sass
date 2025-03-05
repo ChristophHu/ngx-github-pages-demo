@@ -1,0 +1,23 @@
+:host
+  .debug-item-hide
+    display: none
+
+  .debug &
+    .debug-item-hide
+      display: block
+
+.two:hover ~ hr
+  margin-left: 50%
+
+.two.active ~ hr
+  margin-left: 50%
+
+.scrollbar-hide
+  -ms-overflow-style: none
+  scrollbar-width: none
+  overflow-y: scroll
+
+  &::-webkit-scrollbar
+    display: none
+    width: 0
+    height: 0
