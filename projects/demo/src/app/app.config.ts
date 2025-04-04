@@ -1,6 +1,7 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+// import { provideGithubPagesDemo } from '../../../ngx-github-pages-demo/src/public-api';
 import { provideGithubPagesDemo } from '../../../ngx-github-pages-demo/src/public-api';
 import { provideHttpClient } from '@angular/common/http';
 import { TemplateComponent } from './template/template.component';
