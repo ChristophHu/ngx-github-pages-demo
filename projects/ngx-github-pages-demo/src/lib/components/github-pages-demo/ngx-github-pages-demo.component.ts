@@ -3,10 +3,10 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { Observable } from 'rxjs'
 import { GithubService } from '../../services/github.service'
-import { IconsComponent } from '../icons/icons.component'
+import { IconsComponent } from '@christophhu/ngx-icons'
 import { NGX_GITHUB_OPTIONS_TOKEN } from '../../token/ngx-github-options-token'
 import { IGithubOptions } from '../../models/github-options'
-import { DarkModeToggleComponent } from '../dark-mode-toggle/dark-mode-toggle.component'
+import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
 
 @Component({
   selector: 'ngx-github-pages-demo',
