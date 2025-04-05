@@ -1,4 +1,4 @@
 import { Routes } from '@angular/router';
-import { pageRoutes } from '../../../ngx-github-pages-demo/src/public-api';
+import { pageRoutes } from '@christophhu/ngx-github-pages-demo';
 
 export const routes: Routes = [...pageRoutes] //: Routes = [];

@@ -1,4 +1,4 @@
-# GithubPagesDemo
+# Github Pages Demo
 
 ## Frameworks and Languages
 <p align="left">
@@ -23,9 +23,54 @@ npm i @christophhu/ngx-github-pages-demo
 ```
 
 ## Use
-To run the project, use the following command:
-```bash
-ng serve
+### Add your own component to the overview component
+In the `app.component.html` file, you can use the component like this:
+```html
+<ngx-github-pages-demo></ngx-github-pages-demo>
+```
+
+In the `app.component.ts` you can import the component like this:
+```typescript
+import { NgxGithubPagesDemoComponent } from '@christophhu/ngx-github-pages-demo';
+...
+
+@Component({
+  selector: 'app-root',
+  imports: [
+    NgxGithubPagesDemoComponent,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.sass'
+})
+export class AppComponent {}
+```
+
+Configure the Github-Page in the `app.config.ts` file:
+```typescript
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(),
+    provideGithubPagesDemo({ username: 'christophhu', repository: 'ngx-github-pages-demo', version: '0.0.3', template: TemplateComponent }),
+    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideRouter(routes)
+  ]
+}
+```
+The Username ist the name of the user or organization, the repository is the name of the repository and the version is the version you will name it. The template is the component that will be used to display the data. It will be shown in the overview component.
+
+At last there must be a route to the overview and readme component in the `app.routes.ts` file:
+```typescript
+export const routes: Routes = [...pageRoutes]
+```
+You cann add the routes kile this or add them to your own routes.
+
+### Styling
+You have to add your own style, use the default or add tailwindcss. You can use the default style by adding the `tailwindcss.css` file in `node_modules/@christophhu/ngx-github-pages-demo/lib/`. You have to import it to your `angular.json` file:
+```json
+"styles": [
+  "src/styles.css",
+  "node_modules/@christophhu/ngx-github-pages-demo/lib/tailwindcss.css"
+],
 ```
 
 ## License

@@ -1,5 +1,5 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
-import { NgxGithubPagesDemoComponent } from '../../../ngx-github-pages-demo/src/public-api';
+import { NgxGithubPagesDemoComponent } from '@christophhu/ngx-github-pages-demo';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +10,5 @@ import { NgxGithubPagesDemoComponent } from '../../../ngx-github-pages-demo/src/
   styleUrl: './app.component.sass'
 })
 export class AppComponent {
-  @ViewChild('template') template!: TemplateRef<any>
+  
 }
