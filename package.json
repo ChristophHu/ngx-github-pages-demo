@@ -1,13 +1,13 @@
 {
   "name": "ngx-github-pages-demo",
-  "version": "19.2.5",
+  "version": "19.2.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "preprocess": "npx @tailwindcss/cli -o ./projects/ngx-github-pages-demo/src/lib/styling/style.css --optimize && ng build ngx-github-pages-demo",
+    "preprocess": "ng build ngx-github-pages-demo",
     "publish": "cd dist/ngx-github-pages-demo && npm publish --access public"
   },
   "private": true,
@@ -25,7 +25,6 @@
     "@christophhu/ngx-icons": "^19.1.1",
     "@tailwindcss/postcss": "^4.1.3",
     "ngx-markdown": "^19.1.0",
-    "postcss": "^8.5.3",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.3",
     "tslib": "^2.3.0",
@@ -36,6 +35,7 @@
     "@angular/cli": "^19.0.6",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -43,6 +43,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.2.0",
+    "postcss": "^8.5.3",
     "typescript": "~5.6.2"
   }
 }

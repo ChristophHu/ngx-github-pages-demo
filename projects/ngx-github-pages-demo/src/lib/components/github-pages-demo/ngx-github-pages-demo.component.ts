@@ -1,4 +1,4 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core'
+import { Component, Inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core'
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { Observable } from 'rxjs'
@@ -10,6 +10,7 @@ import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
 
 @Component({
   selector: 'ngx-github-pages-demo',
+  standalone: true,
   imports: [
     CommonModule,
     DarkModeToggleComponent,
@@ -22,8 +23,9 @@ import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
   templateUrl: './ngx-github-pages-demo.component.html',
   styleUrls: [
     './ngx-github-pages-demo.component.sass',
-    '../../styling/style.css'
-  ]
+    '../../styling/default.css'
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class NgxGithubPagesDemoComponent {
   @ViewChild('dynamicTemplate') dynamicTemplate!: TemplateRef<any>
