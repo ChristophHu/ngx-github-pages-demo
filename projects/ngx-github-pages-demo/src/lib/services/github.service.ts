@@ -40,7 +40,7 @@ export class GithubService {
 
   constructor(private http: HttpClient, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
     console.log(NGX_GITHUB_OPTIONS_TOKEN, options)
-    if (options.token) {
+    if (options.token || options.token !== '' || options.token !== null) {
       let header = {
         headers: {
           Accept: "application/vnd.github.v3.raw+json", "Content-Type": "application/json;charset=UTF-8",
