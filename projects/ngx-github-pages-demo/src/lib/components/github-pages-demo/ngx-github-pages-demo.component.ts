@@ -20,7 +20,10 @@ import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
     RouterOutlet
   ],
   templateUrl: './ngx-github-pages-demo.component.html',
-  styleUrls: ['./ngx-github-pages-demo.component.sass']
+  styleUrls: [
+    './ngx-github-pages-demo.component.sass',
+    '../../styling/style.css'
+  ]
 })
 export class NgxGithubPagesDemoComponent {
   @ViewChild('dynamicTemplate') dynamicTemplate!: TemplateRef<any>

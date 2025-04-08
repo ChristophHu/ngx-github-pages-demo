@@ -18,8 +18,7 @@ export class GithubService {
   repository: string = ''
   version: string = ''
 
-  TOKEN = 'github_pat_...'
-  TOKEN_ORG = 'github_pat_...'
+  // TOKEN = 'github_pat_...'
 
   private readonly initialState: DataState = { data: null, timestamp: null, loaded: false }
 
@@ -38,15 +37,18 @@ export class GithubService {
       // Authorization: `token ${this.TOKEN}`,
     },
   }
-  header_org = {
-    headers: {
-      // Accept: "application/vnd.github.v3.raw+json", "Content-Type": "application/json;charset=UTF-8",
-      // Authorization: `token ${this.TOKEN_ORG}`,
-    },
-  }
 
   constructor(private http: HttpClient, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
-    console.log('GithubService', options)
+    console.log(NGX_GITHUB_OPTIONS_TOKEN, options)
+    if (options.token) {
+      let header = {
+        headers: {
+          Accept: "application/vnd.github.v3.raw+json", "Content-Type": "application/json;charset=UTF-8",
+          Authorization: "",
+        },
+      }
+      header.headers.Authorization = `token ${options.token}`
+    }
     this.getRepos(options.username)
       .pipe(
         take(1),
