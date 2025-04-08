@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
-    "@christophhu/ngx-dark-mode-toggle": "^19.2.5",
+    "@christophhu/ngx-dark-mode-toggle": "^19.2.6",
     "@christophhu/ngx-github-pages-demo": "^19.2.1",
     "@christophhu/ngx-icons": "^19.1.1",
     "@tailwindcss/postcss": "^4.1.3",
