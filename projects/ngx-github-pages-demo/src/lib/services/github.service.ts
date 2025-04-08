@@ -39,7 +39,7 @@ export class GithubService {
   }
 
   constructor(private http: HttpClient, @Inject(NGX_GITHUB_OPTIONS_TOKEN) public options: IGithubOptions) {
-    console.log(NGX_GITHUB_OPTIONS_TOKEN, options)
+
     if (options.token || options.token !== '' || options.token !== null) {
       let header = {
         headers: {
