@@ -65,11 +65,11 @@ export const routes: Routes = [...pageRoutes]
 You cann add the routes kile this or add them to your own routes.
 
 ### Styling
-You have to add your own style, use the default or add tailwindcss. You can use the default style by adding the `tailwindcss.css` file in `node_modules/@christophhu/ngx-github-pages-demo/lib/`. You have to import it to your `angular.json` file:
+You have to add your own style, use the default or add `style.css`. You can use the default style by adding the `style.css` file in `node_modules/@christophhu/ngx-github-pages-demo/lib/`. You have to import it to your `angular.json` file:
 ```json
 "styles": [
   "src/styles.css",
-  "node_modules/@christophhu/ngx-github-pages-demo/lib/tailwindcss.css"
+  "node_modules/@christophhu/ngx-github-pages-demo/lib/style.css"
 ],
 ```
 

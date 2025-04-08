@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxGithubPagesDemoComponent } from '@christophhu/ngx-github-pages-demo';
 
 @Component({
