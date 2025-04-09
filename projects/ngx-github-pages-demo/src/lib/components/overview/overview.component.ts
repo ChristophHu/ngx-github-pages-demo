@@ -16,6 +16,7 @@ export class OverviewComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.container.clear()
-    this.container.createComponent(this.options.template!)
+    // this.container.createComponent(this.options.template!)
+    if (this.options.template != undefined) this.container.createComponent(this.options.template);
   }
 }

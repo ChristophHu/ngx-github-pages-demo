@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { NgxGithubPagesDemoComponent } from '../../../ngx-github-pages-demo/src/public-api';
 import { NgxGithubPagesDemoComponent } from '@christophhu/ngx-github-pages-demo';
 
 @Component({

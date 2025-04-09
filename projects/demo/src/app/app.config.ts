@@ -9,7 +9,7 @@ import { TemplateComponent } from './template/template.component'
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),
-    provideGithubPagesDemo({ username: 'christophhu', repository: 'ngx-github-pages-demo', version: '0.0.3', template: TemplateComponent }),
+    provideGithubPagesDemo({ username: 'christophhu', repository: 'ngx-github-pages-demo', version: '19.2.6', token: null, template: TemplateComponent }),
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes)
   ]

@@ -1,6 +1,6 @@
 {
   "name": "@christophhu/ngx-github-pages-demo",
-  "version": "19.2.6",
+  "version": "19.2.7",
   "description": "This is a dummy and demo application of any Angular library published on github. It is used to demonstrate the usage of the lib.",
   "license": "MIT",
   "author": {
@@ -26,7 +26,7 @@
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0",
-    "@christophhu/ngx-icons": "^19.1.1",
+    "@christophhu/ngx-icons": "^19.1.2",
     "ngx-markdown": "^19.1.0"
   },
   "dependencies": {

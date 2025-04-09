@@ -28,7 +28,7 @@ import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
   encapsulation: ViewEncapsulation.None
 })
 export class NgxGithubPagesDemoComponent {
-  @ViewChild('dynamicTemplate') dynamicTemplate!: TemplateRef<any>
+  // @ViewChild('dynamicTemplate') dynamicTemplate!: TemplateRef<any>
   
   repos$: Observable<any>
   this_repo$: Observable<any>
