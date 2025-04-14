@@ -1,4 +1,4 @@
-import { Component, Inject, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core'
+import { Component, Inject } from '@angular/core'
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
 import { CommonModule } from '@angular/common'
 import { Observable } from 'rxjs'
@@ -15,21 +15,16 @@ import { DarkModeToggleComponent } from '@christophhu/ngx-dark-mode-toggle'
     CommonModule,
     DarkModeToggleComponent,
     IconsComponent,
-    // OverviewComponent,
     RouterLink,
     RouterLinkActive,
     RouterOutlet
   ],
   templateUrl: './ngx-github-pages-demo.component.html',
   styleUrls: [
-    './ngx-github-pages-demo.component.sass',
-    '../../styling/default.css'
-  ],
-  encapsulation: ViewEncapsulation.None
+    './ngx-github-pages-demo.component.sass'
+  ]
 })
 export class NgxGithubPagesDemoComponent {
-  // @ViewChild('dynamicTemplate') dynamicTemplate!: TemplateRef<any>
-  
   repos$: Observable<any>
   this_repo$: Observable<any>
   user$: Observable<any>
@@ -54,9 +49,9 @@ export class NgxGithubPagesDemoComponent {
   toggleSettings() {
     this.show_settings = !this.show_settings
   }
-  toggleTheme() {
-    this.toggleSettings()
+  // toggleTheme() {
+  //   this.toggleSettings()
     
-    this.body.dataset['theme'] = this.body.dataset['theme'] === 'dark' ? 'dark' : 'dark'
-  }
+  //   this.body.dataset['theme'] = this.body.dataset['theme'] === 'dark' ? 'dark' : 'dark'
+  // }
 }

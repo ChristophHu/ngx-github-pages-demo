@@ -1,6 +1,6 @@
 {
   "name": "ngx-github-pages-demo",
-  "version": "19.2.7",
+  "version": "19.2.8",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,8 +20,8 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
-    "@christophhu/ngx-dark-mode-toggle": "^19.2.7",
-    "@christophhu/ngx-github-pages-demo": "^19.2.7",
+    "@christophhu/ngx-dark-mode-toggle": "^19.2.11",
+    "@christophhu/ngx-github-pages-demo": "^19.2.8",
     "@christophhu/ngx-icons": "^19.1.2",
     "@tailwindcss/postcss": "^4.1.3",
     "ngx-markdown": "^19.1.0",
